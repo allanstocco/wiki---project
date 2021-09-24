@@ -1,0 +1,28 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+Search
+{% endblock %}
+
+{% block body %}
+<h1>Results pages for "{{title}}": </h1>
+
+{% if search %}
+<p> These are the related entries: </p>
+<ul>
+    {% for entry in search %}
+    <li><a href="{% url 'entry' title=entry %}">{{ entry }}</a></li>
+    {% endfor %}
+</ul>
+{% else %}
+<div style="border-bottom: 1px solid #ebebeb; margin-top: 32px;"></div>
+<div style="margin-top: 45px; margin-left: 25px;">
+    <h4>Wiki does not have an article with this exact name :(</h4>
+    <ul>
+        <li>No related entries for "{{ title }}".</li>
+        <li>Please check if "{{title}}" is spelled correctly, and/or do a new Wiki search.</li>
+        <li>Alternatively, you can create an article. Click to create a <a href="{% url 'newArticle' %}">New Article!</a></li>
+    </ul>
+</div>
+{% endif %}
+{% endblock %}

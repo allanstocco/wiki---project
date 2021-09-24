@@ -1,0 +1,39 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+New Article - Wiki
+{% endblock %}
+
+{% block body %}
+
+
+{% if msg %}
+<div class="col-auto" style="margin-top: 50px;">
+
+    <h3>{{ msg }}</h3>
+
+</div>
+{% else %}
+<div class="col-auto">
+
+    <h1>New Wiki Article</h1>
+
+</div>
+<div class="form-group">
+    <form action="{% url 'newArticle' %}" method="post">
+
+        {% csrf_token %}
+        <div class="col-auto">
+            {{ form.as_p }}
+        </div>
+        <br>
+        <div class="col-auto">
+            <button class="btn btn-outline-primary" type="submit">Create</button>
+        </div>
+    </form>
+{% endif %}
+</div>
+
+{% endblock %}
+
+

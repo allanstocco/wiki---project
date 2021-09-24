@@ -1,0 +1,22 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+Couldn't find {{ title }}!
+{% endblock %}
+
+{% block body %}
+
+
+<div style="margin-top: 15px;">
+    <h1 style="text-indent: 25px;">{{ title }}</h1>
+</div>
+<div style="border-bottom: 3px solid black; margin-top: 32px;"></div>
+<div style="margin-top: 45px; margin-left: 25px;">
+    <h4>Wiki does not have an article with this exact name :(</h4>
+    <ul>
+        <li>Please check if "{{title}}" is spelled correctly, and/or do a new Wiki search.</li>
+        <li>Alternatively, you can create an article. Click to create a <a href="{% url 'newArticle' %}">New Article!</a></li>
+    </ul>
+</div>
+
+{% endblock %}

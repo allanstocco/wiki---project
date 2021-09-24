@@ -1,0 +1,19 @@
+{% extends "encyclopedia/layout.html" %}
+
+
+{% block title %}
+{{ title }} - Wiki
+{% endblock %}
+
+{% block body %}
+{{ entry|safe }}
+
+<div style="position: absolute; bottom: 30px; color: #007bff;">
+    <a href="edit/{{ title }}">Would you like to edit this page?</a>
+    Or... click <a href="{% url 'delete' title %}" style="border: none; text-decoration: underline; color: #ff0f0f;">here to delete</a>
+    this Article.
+</form>
+
+
+</div>
+{% endblock %}

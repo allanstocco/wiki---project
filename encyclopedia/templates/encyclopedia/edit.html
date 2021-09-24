@@ -1,0 +1,29 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+        Edit - {{ entryPage }}
+{% endblock %}
+
+{% block body %}
+
+<div class="col-auto" style="margin-top: 20px;">
+
+    <h4>Editing:</h4>
+    <h3>{{ entryPage }}</h2>
+    
+</div>
+<div class="form-group">
+    <form action="{% url 'newArticle' %}" method="post">
+
+        {% csrf_token %}
+        <div class="col-auto" style="margin-top: 50px;">
+            {{ form.as_p }}
+        </div>
+        <br>
+        <div class="col-auto">
+            <button class="btn btn-outline-primary" type="submit">Update</button>
+        </div>
+    </form>
+</div>
+
+{% endblock %}
